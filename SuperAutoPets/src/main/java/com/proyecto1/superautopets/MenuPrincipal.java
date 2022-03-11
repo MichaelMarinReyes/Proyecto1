@@ -1,6 +1,6 @@
 package com.proyecto1.superautopets;
 
-import com.proyecto1.superautopets.modosdejuego.MenuModoJuego;
+import com.proyecto1.superautopets.modosdejueg.MenuModoJuego;
 import java.util.Scanner;
 
 /**

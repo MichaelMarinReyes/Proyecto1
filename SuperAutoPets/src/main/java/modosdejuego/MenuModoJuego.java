@@ -1,4 +1,4 @@
-package com.proyecto1.superautopets.modosdejuego;
+package com.proyecto1.superautopets.modosdejueg;
 
 
 import com.proyecto1.superautopets.MenuPrincipal;
