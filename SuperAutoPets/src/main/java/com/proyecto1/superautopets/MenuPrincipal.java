@@ -1,6 +1,5 @@
 package com.proyecto1.superautopets;
 
-import com.proyecto1.superautopets.modosdejueg.MenuModoJuego;
 import java.util.Scanner;
 
 /**
@@ -12,7 +11,7 @@ public class MenuPrincipal {
     private int opcion;
     Scanner entrada = new Scanner(System.in);
 
-    public void Menu() {
+    public void menu() {
 
         do {
             System.out.println("-MENU PRINCIPAl-");
@@ -24,10 +23,11 @@ public class MenuPrincipal {
             switch (opcion) {
                 case 1:
                     MenuModoJuego menu = new MenuModoJuego();
-                    menu.llamarModoDeJuego();
+                    menu.mostrarModoDeJuego();
 
                     break;
                 case 2:
+                    //llamar al metodo mostrarReportes
                     break;
                 case 3:
                     System.out.println("*Saliendo del Juego*");

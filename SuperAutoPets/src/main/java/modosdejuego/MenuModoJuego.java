@@ -1,20 +1,18 @@
-package com.proyecto1.superautopets.modosdejueg;
+package com.proyecto1.superautopets;
 
-
-import com.proyecto1.superautopets.MenuPrincipal;
 import java.util.Scanner;
 
 /**
  *
  * @author michael
  */
-public class MenuModoJuego {
+class MenuModoJuego {
 
     private int opcion;
-    
+
     Scanner entrada = new Scanner(System.in);
 
-    public void llamarModoDeJuego() {
+    public void mostrarModoDeJuego() {
         do {
             System.out.println("**MENU DE MODOS DE JUEGO**\n Seleccione que tipo de partida desea jugar\n");
             System.out.println("1. ARENA");
@@ -38,8 +36,8 @@ public class MenuModoJuego {
                     }
                     System.out.println("");
                     MenuPrincipal menu = new MenuPrincipal();
-                    menu.Menu();
-                    
+                    menu.menu();
+
                     break;
                 default:
                     System.out.println("Número de opción ingresado inválido\nVuela a intentarlo");

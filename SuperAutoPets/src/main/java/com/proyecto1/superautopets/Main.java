@@ -13,7 +13,6 @@ public class Main {
         System.out.println("*****************\n");
 
         MenuPrincipal menu = new MenuPrincipal();
-        menu.Menu();
+        menu.menu();
     }
-
 }
