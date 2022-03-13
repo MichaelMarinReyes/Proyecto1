@@ -1,4 +1,4 @@
-package com.proyecto1.superautopets.modosdejueg;
+package com.proyecto1.modosdejuego;
 
 /**
  *

@@ -1,24 +1,25 @@
-package com.proyecto1.superautopets;
+package com.proyecto1.modosdejuego;
 
+import com.proyecto1.principal.MenuPrincipal;
 import java.util.Scanner;
 
 /**
  *
  * @author michael
  */
-class MenuModoJuego {
+public class MenuJuego {
 
     private int opcion;
 
     Scanner entrada = new Scanner(System.in);
 
-    public void mostrarModoDeJuego() {
+    public void mostrarModosDeJuego() {
         do {
-            System.out.println("**MENU DE MODOS DE JUEGO**\n Seleccione que tipo de partida desea jugar\n");
-            System.out.println("1. ARENA");
-            System.out.println("2. VERSUS");
-            System.out.println("3. CREATIVO");
-            System.out.println("4. REGRESAR AL MENU PRINCIPAL");
+            System.out.println("\t**MENU DE MODOS DE JUEGO**\n\tSeleccione que tipo de partida desea jugar\n");
+            System.out.println("\t1. ARENA");
+            System.out.println("\t2. VERSUS");
+            System.out.println("\t3. CREATIVO");
+            System.out.println("\t4. REGRESAR AL MENU PRINCIPAL");
             opcion = entrada.nextInt();
 
             switch (opcion) {
