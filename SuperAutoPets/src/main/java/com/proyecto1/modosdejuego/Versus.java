@@ -4,6 +4,6 @@ package com.proyecto1.modosdejuego;
  *
  * @author michael
  */
-public class ModoCreativo {
+public class Versus {
     
 }
