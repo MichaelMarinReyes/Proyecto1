@@ -7,8 +7,9 @@ import com.proyecto1.animales.Animal;
  */
 public class Escorpion extends Animal{
 
-    public Escorpion(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia) {
-        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia);
+    public Escorpion(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
+        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia, valorDeVenta);
     }
+
     
 }

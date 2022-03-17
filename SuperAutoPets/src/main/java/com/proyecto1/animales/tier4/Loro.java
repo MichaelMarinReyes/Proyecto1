@@ -7,8 +7,9 @@ import com.proyecto1.animales.Animal;
  */
 public class Loro extends Animal{
 
-    public Loro(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia) {
-        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia);
+    public Loro(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
+        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia, valorDeVenta);
     }
+
     
 }

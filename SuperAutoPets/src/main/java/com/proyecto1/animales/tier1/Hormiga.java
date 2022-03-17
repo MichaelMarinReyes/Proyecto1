@@ -8,9 +8,10 @@ import com.proyecto1.animales.Animal;
  */
 public class Hormiga extends Animal {
 
-    public Hormiga(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia) {
-        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia);
+    public Hormiga(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
+        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia, valorDeVenta);
     }
+
 
     @Override
     public void setEfecto(String efecto) {

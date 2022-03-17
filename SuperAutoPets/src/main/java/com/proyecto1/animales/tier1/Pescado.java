@@ -8,9 +8,10 @@ import com.proyecto1.animales.Animal;
  */
 public class Pescado extends Animal{
 
-    public Pescado(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia) {
-        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia);
+    public Pescado(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
+        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia, valorDeVenta);
     }
-    
+
+
     
 }

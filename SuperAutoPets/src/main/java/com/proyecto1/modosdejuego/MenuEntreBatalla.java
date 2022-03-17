@@ -1,4 +1,4 @@
-package com.proyecto1.dinamicajuego;
+package com.proyecto1.modosdejuego;
 
 /**
  *
@@ -7,11 +7,13 @@ package com.proyecto1.dinamicajuego;
 public class MenuEntreBatalla {
     
     public void comprarMascotas() {
-        
+        Tienda animales = new Tienda();
+        animales.mostrarMascotasAleatorias();
     }
     
     public void comprarComida() {
-        
+        Tienda comida = new Tienda();
+        comida.mostrarAlimentosRandom();
     }
     
     public void ordenarMascotas() {
@@ -22,8 +24,7 @@ public class MenuEntreBatalla {
         
     }
     
-    public void venderMascota() {
+    public void venderMascotas() {
         
     }
-    
 }

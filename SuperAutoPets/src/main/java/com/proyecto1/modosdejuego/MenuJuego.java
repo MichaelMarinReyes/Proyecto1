@@ -25,7 +25,8 @@ public class MenuJuego {
         if (opcion <= 4) {
             switch (opcion) {
                 case 1:
-                    //ir al modo arena
+                    Arena arena = new Arena();
+                    arena.comenzarActividadJuego();
                     break;
                 case 2:
                     //ir al modo versus

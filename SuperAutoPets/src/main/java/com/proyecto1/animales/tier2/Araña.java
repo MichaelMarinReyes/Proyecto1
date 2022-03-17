@@ -6,10 +6,9 @@ import com.proyecto1.animales.Animal;
  *
  * @author michael
  */
-public class Araña extends Animal{
+public class Araña extends Animal {
 
-    public Araña(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia) {
-        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia);
+    public Araña(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
+        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia, valorDeVenta);
     }
-    
 }
