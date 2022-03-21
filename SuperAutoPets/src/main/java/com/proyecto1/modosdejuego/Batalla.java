@@ -1,5 +1,7 @@
 package com.proyecto1.modosdejuego;
 
+import com.proyecto1.jugarodes.Usuario;
+
 /**
  *
  * @author michael
@@ -15,7 +17,6 @@ public class Batalla {
         juego.comprarMascotas();
         System.out.println("Comida");
         juego.comprarComida();
-
     }
 
     public void iniciarHabilidadesPrimarias() {

@@ -5,27 +5,16 @@ package com.proyecto1.jugarodes;
  * @author michael
  */
 public class Avatar {
-    private String nombre;
+
     private int vida = 10;
     private int victorias = 0;
-    private String[] equipo = new String[5];
+    private String[] equipo;
 
-    public Avatar(String nombre, int vida, int victorias, String[] equipo) {
-        this.nombre = nombre;
+    public Avatar(int vida, int victorias, String[] equipo) {
         this.vida = vida;
-        this.victorias = vida;
+        this.victorias = victorias;
         this.equipo = equipo;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    
 
     public int getVida() {
         return vida;
@@ -50,14 +39,5 @@ public class Avatar {
     public void setEquipo(String[] equipo) {
         this.equipo = equipo;
     }
-    
-    
-    
-    public void perderVida() {
-        
-    }
-    
-    public void ganarTrofeo() {
-        
-    }
+
 }
