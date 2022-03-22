@@ -1,7 +1,5 @@
 package com.proyecto1.modosdejuego;
 
-import com.proyecto1.jugarodes.Usuario;
-
 /**
  *
  * @author michael

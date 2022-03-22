@@ -1,6 +1,6 @@
 package com.proyecto1.principal;
 
-import com.proyecto1.jugarodes.Usuario;
+import com.proyecto1.jugadores.Usuario;
 import java.util.Scanner;
 
 /**

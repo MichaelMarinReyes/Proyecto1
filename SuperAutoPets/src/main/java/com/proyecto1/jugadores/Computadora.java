@@ -1,4 +1,4 @@
-package com.proyecto1.jugarodes;
+package com.proyecto1.jugadores;
 
 /**
  *
