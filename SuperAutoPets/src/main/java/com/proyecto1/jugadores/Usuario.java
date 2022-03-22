@@ -5,8 +5,14 @@ package com.proyecto1.jugadores;
  * @author michael
  */
 public class Usuario extends Avatar {
+
     private String nombre;
     private int oro = 10;
+
+    
+    public Usuario () {
+        
+    }
 
     public Usuario(int vida, int victorias, String[] equipo, String nombre, int oro) {
         super(vida, victorias, equipo);
@@ -28,5 +34,5 @@ public class Usuario extends Avatar {
 
     public void setOro(int oro) {
         this.oro = oro;
-    }  
+    }
 }

@@ -12,10 +12,12 @@ public class Arena {
 
     public void comenzarActividadJuego() {
         Batalla jugar = new Batalla();
-        jugar.comenzarBatalla();
-        jugar.iniciarHabilidadesPrimarias();
-        jugar.indicarPerdedorGanador();
-        jugar.indicarPerdedorGanador();
+        MenuEntreBatalla submenu = new MenuEntreBatalla();
+        submenu.comprarMascotas();
+//        jugar.comenzarBatalla();
+//        jugar.iniciarHabilidadesPrimarias();
+//        jugar.indicarPerdedorGanador();
+//        jugar.indicarPerdedorGanador();
     }
 
 
