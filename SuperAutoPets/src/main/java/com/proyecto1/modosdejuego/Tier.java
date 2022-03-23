@@ -1,5 +1,7 @@
 package com.proyecto1.modosdejuego;
 
+import com.proyecto1.animales.tier1.Hormiga;
+
 /**
  *
  * @author michael
@@ -7,11 +9,13 @@ package com.proyecto1.modosdejuego;
 public class Tier {
 
     public void desbloquarTierAnimales() {
-        int ronda = 0;
+        int ronda = 1;
 
         switch (ronda) {
             case 1:
                 //  TIER 1
+                Hormiga hormiga = new Hormiga(2, 1, " ", "Compañerismo", 1);
+                hormiga.setTipo("Insecto", "Terrestre");
                 /*Hormiga 2/1,
                 compañerismo dar a aliado al azar (2/1)(4/2)(6/3)
                 tipo insecto/terrestre */

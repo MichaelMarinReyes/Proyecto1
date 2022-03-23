@@ -9,10 +9,6 @@ public class Usuario extends Avatar {
     private String nombre;
     private int oro = 10;
 
-    
-    public Usuario () {
-        
-    }
 
     public Usuario(int vida, int victorias, String[] equipo, String nombre, int oro) {
         super(vida, victorias, equipo);

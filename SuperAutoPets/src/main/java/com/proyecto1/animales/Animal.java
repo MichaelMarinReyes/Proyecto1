@@ -11,15 +11,14 @@ public class Animal {
     private String habilidad;
     private int experiencia;
     private String tipo[] = new String[2];
-    private int valorDeVenta;
 
-    public Animal(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
+
+    public Animal(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia) {
         this.unidadDeDaño = unidadDeDaño;
         this.unidadDeVida = unidadDeVida;
         this.efecto = efecto;
         this.habilidad = habilidad;
         this.experiencia = experiencia;
-        this.valorDeVenta = valorDeVenta;
     }
 
     public int getUnidadDeDaño() {

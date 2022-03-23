@@ -20,9 +20,9 @@ public class Main {
 
         System.out.println("Ingrese su nombe:");
         String nombre = entrada.nextLine();
-        Usuario usuario = new Usuario(10, 0, args, nombre, 10);
+   //     Usuario usuario = new Usuario(10, 0, args, nombre, 10);
 
-        System.out.println("Bienvenido: " + usuario.getNombre() + "\n");
+ //       System.out.println("Bienvenido: " + usuario.getNombre() + "\n");
 
         MenuPrincipal menu = new MenuPrincipal();
         menu.menu();
