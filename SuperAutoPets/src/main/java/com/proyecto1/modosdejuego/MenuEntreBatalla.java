@@ -1,5 +1,6 @@
 package com.proyecto1.modosdejuego;
 
+import com.proyecto1.animales.Mascota;
 import com.proyecto1.jugadores.Usuario;
 import java.util.Scanner;
 
@@ -17,9 +18,10 @@ public class MenuEntreBatalla {
 
     public void mostrarOpcionesDeTienda() {
         int opcion;
-        System.out.println("1. Comprar Mascota");
-        System.out.println("2. Comprar Comida");
-        System.out.println("3. Cambiar opciones de tienda");
+
+        tienda.mostrarMascotasAleatorias();
+        tienda.mostrarAlimentosRandom();
+        System.out.println("1. Comprar Mascota\t2. Comprar Comida\t3. Cambiar opciones de tienda");
         opcion = entrada.nextInt();
 
         switch (opcion) {
@@ -60,6 +62,8 @@ public class MenuEntreBatalla {
                             if (fusion == 1) {
                                 this.fusionarMascotas();
                             } else {
+
+                                this.posicionarAnimalComprado();
                                 //buscar espacio Vacio
                                 System.out.println("No cuenta con espacios disponibles, intente nueva mente");
                                 this.comprarMascotas();
@@ -103,5 +107,24 @@ public class MenuEntreBatalla {
 
     public void fusionarMascotas() {
 
+    }
+
+    public void posicionarAnimalComprado() {
+        int posicion;
+        Mascota[] equipo = new Mascota[5];
+
+        System.out.println("Ingrese la posición donde quiere colocar la mascota");
+        System.out.println("La posición se debe indicar con números del 1 al 5");
+        posicion = entrada.nextInt();
+
+        if (posicion <= 5) {
+         //   Mascota[posicion] = animalNuevo;
+
+        } else {
+            while (posicion > 5) {
+                System.out.println("\tValor ingresado incorrecto\nVuelva a Intentarlo\n");
+                this.posicionarAnimalComprado();
+            }
+        }
     }
 }

@@ -1,21 +1,28 @@
 package com.proyecto1.modosdejuego;
 
-import com.proyecto1.animales.tier1.Hormiga;
-
 /**
  *
  * @author michael
  */
 public class Tier {
 
-    public void desbloquarTierAnimales() {
-        int ronda = 1;
+    private int ronda;
 
+    public Tier(int ronda) {
+        this.ronda = ronda;
+    }
+    
+    
+    
+    public void desbloquarTierAnimales(int ronda) {
+
+        
+    
         switch (ronda) {
             case 1:
                 //  TIER 1
-                Hormiga hormiga = new Hormiga(2, 1, " ", "Compañerismo", 1);
-                hormiga.setTipo("Insecto", "Terrestre");
+
+                
                 /*Hormiga 2/1,
                 compañerismo dar a aliado al azar (2/1)(4/2)(6/3)
                 tipo insecto/terrestre */
@@ -211,7 +218,7 @@ public class Tier {
         }
     }
     
-    public void desbloquarTierComida() {
+    public void desbloquarTierComida(int ronda) {
         int tier = 0;
         
         switch (tier) {
@@ -254,5 +261,11 @@ public class Tier {
             default:
                 throw new AssertionError();
         }
+    }
+    
+    public void mostrarMascotasPorTier() {
+        int numero;        
+        numero = (int)(Math.random()*100);
+        System.out.println(numero);
     }
 }

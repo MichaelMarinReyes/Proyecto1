@@ -40,4 +40,7 @@ public class Avatar {
         this.equipo = equipo;
     }
 
+    public boolean indicadorDeVida() {
+        return vida > 0;
+    }
 }

@@ -1,11 +1,11 @@
 package com.proyecto1.animales.tier4;
 
-import com.proyecto1.animales.Animal;
+import com.proyecto1.animales.Mascota;
 /**
  *
  * @author michael
  */
-public class Delfin extends Animal{
+public class Delfin extends Mascota{
 
     public Delfin(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
         super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia, valorDeVenta);

@@ -1,29 +1,24 @@
 package com.proyecto1.animales.tier1;
 
-import com.proyecto1.animales.Animal;
+import com.proyecto1.animales.Mascota;
 
 /**
  *
  * @author michael
  */
-public class Hormiga extends Animal {
+public class Hormiga extends Mascota {
 
-    public Hormiga(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia) {
-        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia);
+    public Hormiga(String nombre, int unidadDeDaño, int unidadDeVida, int experiencia, String[] tipo, String descripicion) {
+        super(nombre, unidadDeDaño, unidadDeVida, experiencia, tipo, descripicion);
     }
 
-    @Override
-    public void setTipo(String[] tipo) {
-        tipo = new String[2];
-        tipo[0] = tipo;
-        tipo[1] = tipo;
-        
-        
-        
+    public Hormiga(String nombre, int unidadDeDaño, int unidadDeVida, String descripcion, String[] tipo) {
+        super(nombre, unidadDeDaño, unidadDeVida, descripcion, tipo);
     }
 
-    @Override
-    public void setEfecto(String efecto) {
-        super.setEfecto("Compañerismo");
+    public Hormiga() {
     }
+
+
+    
 }
