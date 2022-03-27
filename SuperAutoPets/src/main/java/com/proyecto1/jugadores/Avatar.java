@@ -1,5 +1,7 @@
 package com.proyecto1.jugadores;
 
+import com.proyecto1.animales.Mascota;
+
 /**
  *
  * @author michael
@@ -8,9 +10,9 @@ public class Avatar {
 
     private int vida = 10;
     private int victorias = 0;
-    private String[] equipo;
+    private Mascota[] equipo;
 
-    public Avatar(int vida, int victorias, String[] equipo) {
+    public Avatar(int vida, int victorias, Mascota[] equipo) {
         this.vida = vida;
         this.victorias = victorias;
         this.equipo = equipo;
@@ -32,11 +34,11 @@ public class Avatar {
         this.victorias = victorias;
     }
 
-    public String[] getEquipo() {
+    public Mascota[] getEquipo() {
         return equipo;
     }
 
-    public void setEquipo(String[] equipo) {
+    public void setEquipo(Mascota[] equipo) {
         this.equipo = equipo;
     }
 

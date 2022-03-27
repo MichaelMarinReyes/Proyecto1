@@ -1,7 +1,7 @@
 package com.proyecto1.modosdejuego;
 
 import com.proyecto1.animales.Mascota;
-import com.proyecto1.jugadores.Usuario;
+import com.proyecto1.jugadores.Avatar;
 import java.util.Scanner;
 
 /**
@@ -12,32 +12,39 @@ public class MenuEntreBatalla {
 
     private final int COSTO = 3;
     private int compra;
+    private Avatar usuario;
+    private Mascota[] mascota;
 
     Scanner entrada = new Scanner(System.in);
     Tienda tienda = new Tienda();
+    Batalla jugar = new Batalla();
 
     public void mostrarOpcionesDeTienda() {
         int opcion;
 
-        tienda.mostrarMascotasAleatorias();
-        tienda.mostrarAlimentosRandom();
-        System.out.println("1. Comprar Mascota\t2. Comprar Comida\t3. Cambiar opciones de tienda");
-        opcion = entrada.nextInt();
+        while (usuario.indicadorDeVida()) {
+            tienda.mostrarMascotasAleatorias();
+            tienda.mostrarAlimentosRandom();
+            System.out.println("1. Comprar Mascota\t2. Comprar Comida\t3. Cambiar opciones de tienda\t4. Jugar");
+            opcion = entrada.nextInt();
 
-        switch (opcion) {
-            case 1:
-                this.comprarMascotas();
-                break;
-            case 2:
-                this.comprarComida();
-                break;
-            case 3:
-                tienda.mostrarMascotasAleatorias();
-                tienda.mostrarAlimentosRandom();
-                this.mostrarOpcionesDeTienda();
-                break;
-            default:
-                break;
+            switch (opcion) {
+                case 1:
+                    this.comprarMascotas();
+                    break;
+                case 2:
+                    this.comprarComida();
+                    break;
+                case 3:
+                    tienda.mostrarMascotasAleatorias();
+                    tienda.mostrarAlimentosRandom();
+                    this.mostrarOpcionesDeTienda();
+                    break;
+                case 4:
+                    jugar.jugar();
+                default:
+                    break;
+            }
         }
     }
 
@@ -54,7 +61,7 @@ public class MenuEntreBatalla {
                     if (5 > 1) {
                         System.out.println("Seleccione la masscota que desse comprar");
                         compra = entrada.nextInt();
-                        //usar el método de busqueda para selsccionae el animal a comprar
+                        //usar el método de busqueda para seleccionar el animal a comprar
                         System.out.println("1. Fusionar Mascota\n2. Colocar en un espacio disponible");
                         int fusion = entrada.nextInt();
 
@@ -118,7 +125,7 @@ public class MenuEntreBatalla {
         posicion = entrada.nextInt();
 
         if (posicion <= 5) {
-         //   Mascota[posicion] = animalNuevo;
+            //   Mascota[posicion] = animalNuevo;
 
         } else {
             while (posicion > 5) {
