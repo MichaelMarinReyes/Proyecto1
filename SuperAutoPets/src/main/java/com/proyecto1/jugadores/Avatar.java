@@ -12,10 +12,14 @@ public class Avatar {
     private int victorias = 0;
     private Mascota[] equipo;
 
-    public Avatar(int vida, int victorias, Mascota[] equipo) {
+    public Avatar( int vida, int victorias, Mascota[] equipo) {
         this.vida = vida;
         this.victorias = victorias;
         this.equipo = equipo;
+    }
+    
+    public Avatar(){
+        
     }
 
     public int getVida() {
@@ -35,6 +39,9 @@ public class Avatar {
     }
 
     public Mascota[] getEquipo() {
+        for (Mascota mascotas : equipo) {
+            System.out.println(mascotas);
+        }
         return equipo;
     }
 

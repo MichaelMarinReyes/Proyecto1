@@ -40,7 +40,7 @@ public class OrdenamientoYBusqueda {
     public void ordenarPorBurbujaAscendente(Mascota[] equipo) {
         for (int i = 0; i < equipo.length; i++) {
             for (int j = 0; j < equipo.length - 1; j++) {
-                if (equipo[j-1] > equipo[j]) {
+                if (equipo[j - 1] > equipo[j]) {
                     Mascota auxiliar = equipo[j];
                     equipo[j] = equipo[j - 1];
                     equipo[j - 1] = auxiliar;
@@ -59,7 +59,7 @@ public class OrdenamientoYBusqueda {
     public void ordenarPorBurbujaDescendente(Mascota[] equipo) {
         for (int i = 0; i < equipo.length; i++) {
             for (int j = 0; j < equipo.length - 1; j++) {
-                if (equipo[j-1] < equipo[j]) {
+                if (equipo[j - 1] < equipo[j]) {
                     Mascota auxiliar = equipo[j];
                     equipo[j] = equipo[j - 1];
                     equipo[j - 1] = auxiliar;
@@ -76,20 +76,20 @@ public class OrdenamientoYBusqueda {
         int indiceInicial = 0;
         int indiceFinal = equipo.length;
         Mascota caracteristicaEncontrada = null;
-        
+
         while (indiceInicial <= indiceFinal) {
             int puntoCentral = (indiceFinal - indiceInicial) / 2;
             puntoCentral += indiceInicial;
             Mascota caracteristica = equipo[puntoCentral];
-            
+
             if (tipoABuscar == puntoCentral) {
                 caracteristicaEncontrada = caracteristica;
                 break;
             } else if (true) {
-                
+
             } else {
             }
         }
-        
+
     }
 }

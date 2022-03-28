@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Batalla {
 
     private int ronda = 1;
-    private Usuario usuario;
     private Computadora boot;
 
     Scanner entrada = new Scanner(System.in);
@@ -30,38 +29,58 @@ public class Batalla {
     }
 
     Mascota animal = new Mascota();
+    Usuario usuario = new Usuario();
 
+    /**
+     * Método se encarga de comenzar la batalla, mostrar los animales del
+     * usuario y de la IA o jugador importado en caso de modo de juego Arena
+     */
     public void jugar() {
-        System.out.println("Batalla comenzada");
 
-        System.out.println("Mi equipo");
+        //MIENTRAS EL USUARIO O RIVAL TENGA MÁS ANIMALES SE REPITE EL CICLO
+        System.out.println("Batalla comenzada\tRonda: " + ronda);
+        System.out.println("\nMi equipo");
         //mostrar equipo de usuario
-        System.out.println("Equipo Rival");
+        System.out.println("\nEquipo Rival");
         //mostrar equipo random de la IA
 
-        System.out.println("Ya no tienes puntos de vida para seguir luchando");
-        System.out.println("1. Volver a jugar\t2. Menú Principal\t 3. Menú Principal");
-        int opcion = entrada.nextInt();
+        this.iniciarHabilidadesPrimarias();
 
-        if (opcion == 1) {
-            this.jugar();
-        } else {
-        }
+        System.out.println("Mascota eliminada");
+        //CERRAR CICLO MIENTRAS
+   //     System.out.println(this.restarVida());
 
+        ronda++;
     }
 
     private void iniciarHabilidadesPrimarias() {
 
     }
 
-    public void indicarPerdedorGanador() {
-
-    }
 
     private void dinamicaDesbloqueo(int ronda) {
-        Tier desbloquear = new Tier(ronda);
+        Tier desbloquear = new Tier();
 
         desbloquear.desbloquarTierAnimales(ronda);
         desbloquear.desbloquarTierComida(ronda);
+    }
+
+    /**
+     * Si el usuario se queda sin mascotas para la batalla se le resta vida
+     * dependiendo de la ronda en que este.
+     */
+    private void restarVida() {
+        int vidaRestada = 0;
+        if (ronda >= 1 && ronda <= 3) {
+            vidaRestada = 1;
+            usuario.setVida(usuario.getVida() - vidaRestada);
+        } else if (ronda >= 4 && ronda <= 6) {
+            vidaRestada = 2;
+            usuario.setVida(usuario.getVida() - vidaRestada);
+        } else {
+            vidaRestada = 3;
+            usuario.setVida(usuario.getVida() - vidaRestada);
+        }
+
     }
 }

@@ -1,5 +1,7 @@
 package com.proyecto1.jugadores;
 
+import com.proyecto1.animales.Mascota;
+
 /**
  *
  * @author michael
@@ -9,11 +11,17 @@ public class Usuario extends Avatar {
     private String nombre;
     private int oro = 10;
 
-
-    public Usuario(int vida, int victorias, String[] equipo, String nombre, int oro) {
+    public Usuario(int vida, int victorias, Mascota[] equipo,String nombre) {
         super(vida, victorias, equipo);
         this.nombre = nombre;
-        this.oro = oro;
+    }
+
+    public Usuario(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Usuario() {
+        
     }
 
     public String getNombre() {

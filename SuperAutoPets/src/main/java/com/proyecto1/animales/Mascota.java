@@ -9,28 +9,25 @@ public class Mascota {
     private String nombre;
     private int unidadDeDaño;
     private int unidadDeVida;
-    private String efectoActivo;
+    private String efecto;
     private String habilidad;
-    private int experiencia = 1;
+    private int nivel = 1;
     private String[] tipo;
     private String descripicion;
 
-    public Mascota(String nombre, int unidadDeDaño, int unidadDeVida, int experiencia, String[] tipo, String descripicion) {
+    public Mascota(String nombre, int unidadDeDaño, int unidadDeVida, int nivel, String descripicion) {
         this.nombre = nombre;
         this.unidadDeDaño = unidadDeDaño;
         this.unidadDeVida = unidadDeVida;
-        this.experiencia = experiencia;
-        this.tipo = tipo;
+        this.nivel = nivel;
         this.descripicion = descripicion;
     }
 
-    public Mascota(String nombre, int unidadDeDaño, int unidadDeVida, String descripcion, String[] tipo) {
+    public Mascota(String nombre, int unidadDeDaño, int unidadDeVida, String descripcion) {
         this.nombre = nombre;
         this.unidadDeDaño = unidadDeDaño;
         this.unidadDeVida = unidadDeVida;
         this.descripicion = descripcion;
-        this.tipo = tipo;
-
     }
 
     public Mascota() {
@@ -38,7 +35,7 @@ public class Mascota {
 
     @Override
     public String toString() {
-        return nombre + ": [" + unidadDeDaño + "/" + unidadDeVida + "]\n" + habilidad + ": " + experiencia + "\n" + tipo;
+        return nombre + ": [" + unidadDeDaño + "/" + unidadDeVida + "]\n" + descripicion;
     }
 
 }

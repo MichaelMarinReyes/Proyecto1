@@ -13,26 +13,17 @@ public class Tienda {
     private int ronda = 0;
     private String[] tipo = {"Insecto","Terrestre"};
     
-    Mascota mascota = new Mascota("Hormiga", 2, 1, "Da a un aliado al azar (+2/+1)/(+4/+2)/(+6/+3) al morir", tipo);
-    Mascota mascota2 = new Mascota();
-    Mascota mascota3 = new Mascota();
-    Mascota mascota4 = new Mascota();
-    Mascota mascota5 = new Mascota();
-    Mascota mascota6 = new Mascota();
-    Mascota mascota7 = new Mascota();
-    
+    Tier animales = new Tier();
+    /**
+     * Método que se encarga de mostrar los animales según ronda
+     * y tier desbloqueado.
+     */
     private void mostrarMascotasPorRonda() {
         if (ronda == 1 && ronda <= 2) {
             animalesTienda = new Mascota[3];
             this.mostrarMascotas();
-            animalesTienda[0] = mascota;
-            animalesTienda[1] = mascota2;
-            animalesTienda[2] = mascota3;
-            animalesTienda[3] = mascota4;
-            animalesTienda[4] = mascota5;
-            animalesTienda[5] = mascota6;
-            animalesTienda[6] = mascota7;
-            //combinar tier 1 con 2
+            
+            //combinar tier 1
         } else if (ronda == 2 && ronda < 4) {
             //combinar tier 3 con los anteriores
         } else if (ronda == 4 && ronda < 6) {
