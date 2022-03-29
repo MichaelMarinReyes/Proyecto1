@@ -30,6 +30,7 @@ public class Batalla {
 
     Mascota animal = new Mascota();
     Usuario usuario = new Usuario();
+    Tier mostrarTier = new Tier();
 
     /**
      * Método se encarga de comenzar la batalla, mostrar los animales del
@@ -51,6 +52,9 @@ public class Batalla {
    //     System.out.println(this.restarVida());
 
         ronda++;
+        mostrarTier.desbloquarTierAnimales(ronda);
+        mostrarTier.desbloquarTierComida(ronda);
+        
     }
 
     private void iniciarHabilidadesPrimarias() {

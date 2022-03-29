@@ -10,16 +10,17 @@ import java.util.Scanner;
  * @author michael
  */
 public class MenuEntreBatalla {
+    private int ronda;
 
     private final int COSTO = 3;
-    private int compra;
-    private Mascota[] mascota;
 
     Scanner entrada = new Scanner(System.in);
     Tienda tienda = new Tienda();
     Batalla jugar = new Batalla();
     Usuario usuario = new Usuario();
-
+    Mascota equipo[] = new Mascota[5];
+    Mascota mascota = new Mascota();
+    
     public void mostrarOpcionesDeTienda() {
 
         boolean error = false;
@@ -35,23 +36,29 @@ public class MenuEntreBatalla {
 
                     switch (opcion) {
                         case 1:
-                            this.comprarMascotas();
+                            while (usuario.getVida() >= 3) {
+                                this.comprarMascotas();
+                            }
+                            System.out.println("No cuentas con suficiente monedas para comprar");
+                            this.mostrarOpcionesDeTienda();
                             break;
                         case 2:
-                            while (usuario.getOro() > 3) {
+                            while (usuario.getOro() >= 3) {
                                 this.comprarComida();
                             }
                             System.out.println("No cuentas con suficientes monedas para comprar");
                             this.mostrarOpcionesDeTienda();
                             break;
                         case 3:
-
-                            tienda.mostrarMascotasAleatorias();
-                            tienda.mostrarAlimentosRandom();
-                            this.mostrarOpcionesDeTienda();
+                            while (usuario.getOro() >= 1) {
+                                tienda.mostrarMascotasAleatorias();
+                                tienda.mostrarAlimentosRandom();
+                                this.mostrarOpcionesDeTienda();
+                            }
                             break;
                         case 4:
                             jugar.jugar();
+                        break;
                         default:
                             while (opcion > 4) {
                                 System.out.println("\tNúmero de opción ingresado inválido\nVuela a intentarlo\n");
@@ -91,25 +98,26 @@ public class MenuEntreBatalla {
                     switch (opcion) {
                         case 1:
                             if (5 > 1) {
-                                System.out.println("Seleccione la masscota que desse comprar");
-                                compra = entrada.nextInt();
-                                //usar el método de busqueda para seleccionar el animal a comprar
+                                System.out.println("Seleccione la mascota que desse comprar");
+                                int compra = entrada.nextInt();
+                                //ENVIAR EL PARAMETRO COMPRA A LA BUSQUEDA PARA COMPRARLO
                                 System.out.println("1. Fusionar Mascota\n2. Colocar en un espacio disponible");
-                                int fusion = entrada.nextInt();
+                                int animalSeleccionado = entrada.nextInt();
                                 error = true;
-
-                                if (fusion <= 2) {
-                                    if (fusion == 1) {
+                                
+                                if (animalSeleccionado <= 2) {
+                                    if (animalSeleccionado == 1) {
                                         this.fusionarMascotas();
-                                    } else {
-
+                                    } else if (animalSeleccionado == 2){
                                         this.posicionarAnimalComprado();
                                         //buscar espacio Vacio
+                                        
+                                        
                                         System.out.println("No cuenta con espacios disponibles, intente nueva mente");
                                         this.comprarMascotas();
                                     }
                                 } else {
-                                    while (fusion > 2) {
+                                    while (animalSeleccionado > 2) {
                                         System.out.println("Opcion no válida");
                                         this.comprarMascotas();
                                     }
@@ -141,7 +149,6 @@ public class MenuEntreBatalla {
     }
 
     public void copiarArreglo() {
-        
 
     }
 
@@ -159,15 +166,14 @@ public class MenuEntreBatalla {
 
     public void posicionarAnimalComprado() {
         int posicion;
-        Mascota[] equipo = new Mascota[5];
+        
 
         System.out.println("Ingrese la posición donde quiere colocar la mascota");
         System.out.println("La posición se debe indicar con números del 1 al 5");
         posicion = entrada.nextInt();
 
         if (posicion <= 5) {
-            //   Mascota[posicion] = animalNuevo;
-
+//            equipo[posicion] = ;
         } else {
             while (posicion > 5) {
                 System.out.println("\tValor ingresado incorrecto\nVuelva a Intentarlo\n");

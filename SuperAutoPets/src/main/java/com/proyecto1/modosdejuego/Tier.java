@@ -1,6 +1,7 @@
 package com.proyecto1.modosdejuego;
 
 import com.proyecto1.animales.Mascota;
+import com.proyecto1.jugadores.Usuario;
 
 /**
  *
@@ -8,25 +9,25 @@ import com.proyecto1.animales.Mascota;
  */
 public class Tier {
 
-    public void mostrarMascotasYComidaTier1(Mascota[] tier, int ronda) {
+    Mascota[] nuevoTier;
+    
+//    Tienda tienda = new Tienda();
+    OrdenamientoYBusqueda ordenar = new OrdenamientoYBusqueda();
+
+    public Mascota[] combinarTierAnteriorYDesbloqueado(Mascota[] tierRondaAnterior, Mascota[] tierRondaSiguiente) {
         int valor = 8;
-        int posicionParaMostrar = 0;
-        Mascota[] elementos = new Mascota[valor];
+        int posicionParaMostrar = 0;;
 
-        if (ronda == 1) {
-            for (int i = 0; i < 3; i++) {
-                posicionParaMostrar = ((int) Math.random()*8);
-
-            }
-        } else {
-        }
-        for (int i = 0; i < elementos.length; i++) {
-            elementos[posicionParaMostrar] = tier[i];
+        for (int i = 0; i < nuevoTier.length; i++) {
+            nuevoTier[posicionParaMostrar] = tierRondaAnterior[i];
             posicionParaMostrar++;
-            elementos[posicionParaMostrar] = tier2[i];
+            nuevoTier[posicionParaMostrar] = tierRondaAnterior[i];
             posicionParaMostrar++;
         }
+
+        return nuevoTier;
     }
+
 
     public void desbloquarTierAnimales(int ronda) {
         Mascota[] tier = new Mascota[8];
@@ -48,7 +49,14 @@ public class Tier {
             tier[5] = caballo;
             tier[6] = nutria;
             tier[7] = escarabajo;
-            this.mostrarMascotasYComidaTier1(tier, 1);
+            
+            nuevoTier = tier;
+            
+            
+            
+            int indice = ((int) Math.random()* 7);
+            
+            
 
         } else if (ronda == 3 && ronda == 4) {
             Mascota[] tier2 = new Mascota[8];
@@ -69,7 +77,9 @@ public class Tier {
             tier2[5] = rata;
             tier2[6] = zorro;
             tier2[7] = araña;
-            this.mostrarMascotasYComidaTier1(tier2, 3);
+
+            nuevoTier = this.combinarTierAnteriorYDesbloqueado(tier, tier2);
+            
 
         } else if (ronda == 5 && ronda == 6) {
             Mascota[] tier3 = new Mascota[11];
@@ -96,7 +106,7 @@ public class Tier {
             tier3[8] = buey;
             tier3[9] = canguro;
             tier3[10] = buho;
-            this.mostrarMascotasYComidaTier1(tier3, 5);
+            nuevoTier = this.combinarTierAnteriorYDesbloqueado(nuevoTier, tier3);
 
         } else if (ronda == 7 && ronda == 8) {
             Mascota[] tier4 = new Mascota[8];
@@ -117,7 +127,7 @@ public class Tier {
             tier4[5] = ballena;
             tier4[6] = ardilla;
             tier4[7] = llama;
-            this.mostrarMascotasYComidaTier1(tier4);
+            nuevoTier = this.combinarTierAnteriorYDesbloqueado(nuevoTier, tier4);
 
         } else if (ronda == 9 && ronda == 10) {
             Mascota[] tier5 = new Mascota[8];
@@ -138,7 +148,7 @@ public class Tier {
             tier5[5] = cocodrilo;
             tier5[6] = vaca;
             tier5[7] = chompipe;
-            this.mostrarMascotasYComidaTier1(tier5);
+            nuevoTier = this.combinarTierAnteriorYDesbloqueado(nuevoTier, tier5);
 
         } else if (ronda == 11 && ronda == 12) {
             Mascota[] tier6 = new Mascota[9];
@@ -161,7 +171,7 @@ public class Tier {
             tier6[6] = gorila;
             tier6[7] = pulpo;
             tier6[8] = mosca;
-            this.mostrarMascotasYComidaTier1(tier6);
+            nuevoTier = this.combinarTierAnteriorYDesbloqueado(nuevoTier, tier6);
 
         } else if (ronda > 12) {
             Mascota[] tier7 = new Mascota[2];
@@ -170,7 +180,7 @@ public class Tier {
 
             tier7[0] = quetzal;
             tier7[1] = camaleon;
-            this.mostrarMascotasYComidaTier1(tier7);
+            nuevoTier = this.combinarTierAnteriorYDesbloqueado(nuevoTier, tier7);
         }
     }
 

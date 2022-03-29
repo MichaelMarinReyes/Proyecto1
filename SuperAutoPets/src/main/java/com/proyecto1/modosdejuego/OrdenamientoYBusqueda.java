@@ -1,7 +1,6 @@
 package com.proyecto1.modosdejuego;
 
 import com.proyecto1.animales.Mascota;
-import com.proyecto1.jugadores.Avatar;
 
 /**
  *

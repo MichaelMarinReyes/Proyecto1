@@ -14,16 +14,14 @@ public class Tienda {
     private String[] tipo = {"Insecto","Terrestre"};
     
     Tier animales = new Tier();
+    
     /**
      * Método que se encarga de mostrar los animales según ronda
      * y tier desbloqueado.
      */
-    private void mostrarMascotasPorRonda() {
+    public void mostrarMascotasPorRonda(Mascota[] tierRondaAnterior) {
         if (ronda == 1 && ronda <= 2) {
-            animalesTienda = new Mascota[3];
             this.mostrarMascotas();
-            
-            //combinar tier 1
         } else if (ronda == 2 && ronda < 4) {
             //combinar tier 3 con los anteriores
         } else if (ronda == 4 && ronda < 6) {
@@ -38,7 +36,7 @@ public class Tienda {
     }
 
     public void mostrarMascotasAleatorias() {
-        this.mostrarMascotasPorRonda();
+        
     }
 
     public void mostrarAlimentosRandom() {
@@ -61,7 +59,7 @@ public class Tienda {
     
     public void mostrarMascotas() {
         for (Mascota mascota : animalesTienda) {
-            System.out.println(mascota);
+            mascota.toString();
         }
     }
 
