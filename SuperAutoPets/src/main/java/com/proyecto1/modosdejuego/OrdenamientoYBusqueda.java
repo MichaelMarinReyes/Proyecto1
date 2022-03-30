@@ -1,5 +1,6 @@
 package com.proyecto1.modosdejuego;
 
+import camposdejuego.CampoDeJuego;
 import com.proyecto1.animales.Mascota;
 
 /**
@@ -74,21 +75,38 @@ public class OrdenamientoYBusqueda {
     public void buscarBinariamente(Mascota[] equipo, int tipoABuscar) {
         int indiceInicial = 0;
         int indiceFinal = equipo.length;
+        int puntoMedio;
         Mascota caracteristicaEncontrada = null;
 
         while (indiceInicial <= indiceFinal) {
-            int puntoCentral = (indiceFinal - indiceInicial) / 2;
-            puntoCentral += indiceInicial;
-            Mascota caracteristica = equipo[puntoCentral];
+            puntoMedio = (indiceFinal - indiceInicial)/2;
+            puntoMedio += indiceInicial;
+            Mascota caracteristica = equipo[puntoMedio];
 
-            if (tipoABuscar == puntoCentral) {
+            if (tipoABuscar == puntoMedio) {
                 caracteristicaEncontrada = caracteristica;
                 break;
-            } else if (true) {
+            } else if (caracteristica.getUnidadDeDaño()) {
 
             } else {
             }
         }
 
+    }
+
+    public void buscarPorSecuencia(String nombre, CampoDeJuego[] campos) {
+        CampoDeJuego mapaSeleccionado = null;
+        for (CampoDeJuego campo : campos) {
+            if (campo.verificarNombre(nombre)) {
+                mapaSeleccionado = campo;
+                break;
+            }
+        }
+
+        if (mapaSeleccionado != null) {
+            System.out.println("Mapa seleccionado: " + mapaSeleccionado);
+        } else {
+            System.out.println("No se obtuvo resultados");
+        }
     }
 }

@@ -225,7 +225,6 @@ public class Tier {
                 //Gelatina: Es tipo efecto, y hace que el animal que lo porté tenga un tipo extra que escoge el jugador.
                 break;
             default:
-                throw new AssertionError();
         }
     }
 }

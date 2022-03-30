@@ -16,7 +16,7 @@ public class Arena {
     public void comenzarActividadJuego() {
         Batalla jugar = new Batalla();
         MenuEntreBatalla submenu = new MenuEntreBatalla();
-        submenu.mostrarOpcionesDeTienda();
+        submenu.mostrarOpcionesDeTiendaArena();
         jugar.comenzarBatalla();
     }
 

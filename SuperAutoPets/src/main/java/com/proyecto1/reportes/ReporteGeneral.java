@@ -1,4 +1,4 @@
-package reportes;
+package com.proyecto1.reportes;
 
 /**
  *

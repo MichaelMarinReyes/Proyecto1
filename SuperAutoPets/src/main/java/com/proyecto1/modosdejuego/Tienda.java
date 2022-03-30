@@ -10,7 +10,7 @@ import com.proyecto1.animales.Mascota;
 public class Tienda {
     private Mascota[] animalesTienda;
     private Comida[] comidaTienda;
-    private int ronda = 0;
+    private int ronda = 1;
     private String[] tipo = {"Insecto","Terrestre"};
     
     Tier animales = new Tier();

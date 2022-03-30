@@ -1,7 +1,7 @@
 package com.proyecto1.principal;
 
+import com.proyecto1.modosdejuego.*;
 import java.util.Scanner;
-import com.proyecto1.modosdejuego.MenuJuego;
 import java.util.InputMismatchException;
 
 /**
@@ -19,22 +19,33 @@ public class MenuPrincipal {
         while (!error) {
             try {
                 System.out.println("\t-MENU PRINCIPAl-");
-                System.out.println("\t1. Modos de Juego");
-                System.out.println("\t2. Reportes de Juego");
-                System.out.println("\t3. Salir");
+                System.out.println("\t1. Arena");
+                System.out.println("\t2. Versus");
+                System.out.println("\t3. Creativo");
+                System.out.println("\t4. Reportes de Juego");
+                System.out.println("\t5. Salir");
                 opcion = entrada.nextInt();
                 error = true;
-                
-                if (opcion <= 3) {
+
+                if (opcion <= 5) {
                     switch (opcion) {
                         case 1:
                             System.out.println("-------------------------------");
-                            MenuJuego submenu = new MenuJuego();
-                            submenu.mostrarModosDeJuego();
+                            Arena arena = new Arena();
+                            arena.comenzarActividadJuego();
                             break;
                         case 2:
                             System.out.println("-------------------------------");
-                            //llamar al metodo mostrarReportes
+                            Versus versus = new Versus();
+                            versus.comenzarJuego();
+                            break;
+                        case 3:
+                            System.out.println("-------------------------------");
+                            Creativo creativo = new Creativo();
+                            creativo.comenzarJuego();
+                            break;
+                        case 4:
+                            //REPORTES
                             break;
                         default:
                             System.out.println("-------------------------------");
@@ -42,14 +53,15 @@ public class MenuPrincipal {
                             break;
                     }
                 } else {
-                    while (opcion > 3) {
+                    while (opcion > 5) {
                         System.out.println("\tValor ingresado incorrecto\n\tVuelva a Intentarlo\n");
+                        this.menu();
                     }
                 }
 
             } catch (InputMismatchException e) {
                 String errorCometido = entrada.nextLine();
-                System.out.println("Valor incorrecto: \"" + errorCometido +"\"");
+                System.out.println("Valor incorrecto: \"" + errorCometido + "\"");
                 System.out.println("Ha ingresado un valor incorrecto!!\nVuelva a intentarlo\n");
             }
 
