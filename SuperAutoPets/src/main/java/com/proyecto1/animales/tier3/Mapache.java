@@ -8,9 +8,17 @@ import com.proyecto1.animales.Mascota;
  */
 public class Mapache extends Mascota {
 
-    public Mapache(int unidadDeDaño, int unidadDeVida, String efecto, String habilidad, int experiencia, int valorDeVenta) {
-        super(unidadDeDaño, unidadDeVida, efecto, habilidad, experiencia, valorDeVenta);
+    public Mapache(String nombre, int unidadDeDaño, int unidadDeVida, int nivel, String descripicion) {
+        super(nombre, unidadDeDaño, unidadDeVida, nivel, descripicion);
     }
+
+    public Mapache(String nombre, int unidadDeDaño, int unidadDeVida, String descripcion) {
+        super(nombre, unidadDeDaño, unidadDeVida, descripcion);
+    }
+
+    public Mapache() {
+    }
+
 
     
 }

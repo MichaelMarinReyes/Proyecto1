@@ -57,9 +57,6 @@ public class Batalla {
         //     System.out.println(this.restarVida());
 
         ronda++;
-        mostrarTier.desbloquarTierAnimales(ronda);
-        mostrarTier.desbloquarTierComida(ronda);
-
     }
 
     public void jugarVersus() {
