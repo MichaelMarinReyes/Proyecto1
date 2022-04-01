@@ -102,7 +102,7 @@ public class Mascota {
 
     @Override
     public String toString() {
-        return nombre + " [" + unidadDeDaño + "/ " + unidadDeVida + "]" + " Nivel: " + nivel + "\n\tTipo:" + tipo + "\n\t" + descripicion + " " + efecto;
+        return nombre + " [" + unidadDeDaño + "/ " + unidadDeVida + "]" + " Nivel: " + nivel + "\n\tTipo:" + tipo + "\n\t" + descripicion + " " + efecto + "\n";
     }
 
     public boolean verificarNombre(String nombreSeleccionado) {

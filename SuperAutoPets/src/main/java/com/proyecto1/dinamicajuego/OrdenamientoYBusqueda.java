@@ -1,4 +1,4 @@
-package com.proyecto1.modosdejuego;
+package com.proyecto1.dinamicajuego;
 
 import com.proyecto1.camposdejuego.CampoDeJuego;
 import com.proyecto1.animales.Mascota;

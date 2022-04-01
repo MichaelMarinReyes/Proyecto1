@@ -1,5 +1,6 @@
 package com.proyecto1.modosdejuego;
 
+import com.proyecto1.dinamicajuego.OrdenamientoYBusqueda;
 import com.proyecto1.alimentos.Ajo;
 import com.proyecto1.alimentos.Carne;
 import com.proyecto1.alimentos.Chile;
@@ -81,13 +82,16 @@ import com.proyecto1.animales.tier7.Quetzal;
  */
 public class Tier {
 
-    private int tamañoAnimales = 54;
-    private int tamañoComida = 18;
-    Mascota[] mascota = new Mascota[tamañoAnimales];
-    Comida[] comida = new Comida[tamañoComida];
+    private final int TAMAÑO_ANIMALES = 54;
+    private final int TAMAÑO_COMIDA = 18;
+    private final int CANTIDAD_COMIDA_MOSTRADA = 2;
+    private int animalesMostradosPorRonda;
+    private int comidaMostradaPorRonda;
+    Mascota[] mascota = new Mascota[TAMAÑO_ANIMALES];
+    Comida[] comida = new Comida[TAMAÑO_COMIDA];
     OrdenamientoYBusqueda ordenar = new OrdenamientoYBusqueda();
 
-    public void almacenarMascotas() {
+    public Mascota[] desbloquearTierMascota(int ronda) {
         mascota[0] = new Hormiga("Hormiga", 2, 1, 1, 1, "Da a un aliado al azar (+2/+1)/(+4/+2)/(+6/+3) al morir");
         mascota[1] = new Pescado("Pescado", 2, 3, 1, 1, "Power - up: Da a todos los aliados(+1 / +1) / (+2 / +2) al subir de nivel");
         mascota[2] = new Mosquito("Mosquito", 2, 2, 1, 1, "Piquete inicial: Al iniciar batalla realiza 1 de daño a(1) / (2) / (3) enemigos");
@@ -143,12 +147,83 @@ public class Tier {
         mascota[52] = new Quetzal("Quetzal", 10, 10, 7, 1, "Habilidades por nivel (1) Agrega a su vida la suma de toda la vida de los animales tipos aves (2) Hace lo del nivel 1 y agrega a su daño la suma de todo el daño del daño de todas las aves (3) Hace lo del nivel 2 pero con todos los animales");
         mascota[53] = new Camaleon("Camaleon", 8, 8, 7, 1, "Habilidades por nivel (1) Copia la vida del enemigo más fuerte (2) Copia la vida y el daño del enemigo más fuerte (3) Copia la vida, el daño y la habilidad del enemigo más fuerte");
 
-        for (Mascota mascota1 : mascota) {
-            System.out.println(mascota1);
+// Tienda ronda 1, 2, 3, tier 1, tier 2
+        if (ronda >= 1 && ronda <= 3) {
+            if (ronda == 1 || ronda == 2) {
+                //Tier 1
+                animalesMostradosPorRonda = 8;
+                for (int i = 0; i < 3; i++) {
+                    int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                    System.out.println(mascota[indice]);
+
+                }
+                return mascota;
+            } else if (ronda == 3) {
+                //Tier 2
+                animalesMostradosPorRonda = 16;
+                for (int i = 0; i < 3; i++) {
+                    int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                    System.out.println(mascota[indice]);
+                }
+                return mascota;
+            }
+
+// Tienda ronda 4, 5, 6, tier 4
+        } else if (ronda >= 4 && ronda <= 6) {
+            if (ronda == 4) {
+                //Tier 2
+                animalesMostradosPorRonda = 16;
+                for (int i = 0; i < 4; i++) {
+                    int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                    System.out.println(mascota[indice]);
+                }
+                return mascota;
+            } else if (ronda == 5 || ronda == 6) {
+                //Tier 3
+                animalesMostradosPorRonda = 27;
+                int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                System.out.println(mascota[indice]);
+            }
+            return mascota;
+        } else if (ronda >= 7) {
+            if (ronda == 7 || ronda == 8) {
+                //Tier 4
+                animalesMostradosPorRonda = 35;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                    System.out.println(mascota[indice]);
+                }
+                return mascota;
+            } else if (ronda == 9 || ronda == 10) {
+                //Tier 7
+                animalesMostradosPorRonda = 43;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                    System.out.println(mascota[indice]);
+                }
+                return mascota;
+            } else if (ronda == 11 || ronda == 12) {
+                //Tier 6
+                animalesMostradosPorRonda = 52;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                    System.out.println(mascota[indice]);
+                }
+                return mascota;
+            } else if (ronda > 12) {
+                //Tier 7
+                animalesMostradosPorRonda = 54;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * animalesMostradosPorRonda);
+                    System.out.println(mascota[indice]);
+                }
+                return mascota;
+            }
         }
+        return mascota;
     }
 
-    public void almacenarTierComida() {
+    public Comida[] desbloquerTierComida(int ronda) {
         comida[0] = new Manzana("Manzana", "Da 1 de vida y 1 de daño a un animal seleccionado", 1, 1);
         comida[1] = new Naranja("Naranja", "Efecto", "Hace que regrese un 10% de daño");
         comida[2] = new Miel("Miel", "Efecto", "Cuando la mascota a la que se le dio la miel muere, es remplazada con una abeja de 1 de vida y 1 de daño");
@@ -168,25 +243,80 @@ public class Tier {
         comida[16] = new Carne("Carne", "Efecto", "Hace que el animal que lo porte haga 20 de daño adicional 1 vez por ronda", 0, 20);
         comida[17] = new Gelatina("Gelatina", "Efecto", "El animal que lo porte puede tener un tipo extra");
 
-        for (Comida comida1 : comida) {
-            System.out.println(comida1);
-        }
-    }
+// Tienda ronda 1, 2, 3, tier 1, tier 2
+        if (ronda >= 1 && ronda <= 3) {
+            if (ronda == 1 || ronda == 2) {
+                //Tier 1
+                comidaMostradaPorRonda = 3;
+                for (int i = 0; i < CANTIDAD_COMIDA_MOSTRADA; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+                return comida;
+            } else if (ronda == 3) {
+                //Tier 2
+                comidaMostradaPorRonda = 6;
+                for (int i = 0; i < CANTIDAD_COMIDA_MOSTRADA; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+                return comida;
+            }
 
-    public Mascota[] desloquearMascotas(Mascota[] arreglo) {
-        Mascota[] nuevoTier = new Mascota[arreglo.length];
-        for (int i = 0; i < arreglo.length; i++) {
-            nuevoTier[i] = arreglo[i];
+// Tienda ronda 4, 5, 6, tier 4
+        } else if (ronda >= 4 && ronda <= 6) {
+            if (ronda == 4) {
+                //Tier 2
+                comidaMostradaPorRonda = 6;
+                for (int i = 0; i < CANTIDAD_COMIDA_MOSTRADA; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+                return comida;
+            } else if (ronda == 5 || ronda == 6) {
+                //Tier 3
+                comidaMostradaPorRonda = 10;
+                for (int i = 0; i < CANTIDAD_COMIDA_MOSTRADA; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+            }
+            return comida;
+        } else if (ronda >= 7) {
+            if (ronda == 7 || ronda == 8) {
+                //Tier 4
+                comidaMostradaPorRonda = 13;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+                return comida;
+            } else if (ronda == 9 || ronda == 10) {
+                //Tier 5
+                comidaMostradaPorRonda = 15;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+                return comida;
+            } else if (ronda == 11 || ronda == 12) {
+                //Tier 6
+                comidaMostradaPorRonda = 17;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+                return comida;
+            } else if (ronda > 12) {
+                //Tier 7
+                comidaMostradaPorRonda = 18;
+                for (int i = 0; i < 5; i++) {
+                    int indice = (int) (Math.random() * comidaMostradaPorRonda);
+                    System.out.println(comida[indice]);
+                }
+                return comida;
+            }
         }
-        return nuevoTier;
-    }
-
-    public Comida[] desbloquearComida(Comida[] comida) {
-        Comida[] nuevaComida = new Comida[comida.length];
-
-        for (int i = 0; i < comida.length; i++) {
-            nuevaComida[i] = comida[i];
-        }
-        return nuevaComida;
+        return comida;
     }
 }

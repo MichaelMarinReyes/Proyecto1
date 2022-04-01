@@ -5,6 +5,7 @@ package com.proyecto1.alimentos;
  * @author michael
  */
 public class Comida {
+
     String nombre;
     String tipoComida;
     String descripcion;
@@ -25,8 +26,8 @@ public class Comida {
         this.darVida = darVida;
         this.darDaño = darDaño;
     }
-    
-    public Comida(String nombre, String tipoComida, String descripion){
+
+    public Comida(String nombre, String tipoComida, String descripion) {
         this.nombre = nombre;
         this.tipoComida = tipoComida;
         this.descripcion = descripion;
@@ -34,8 +35,7 @@ public class Comida {
 
     @Override
     public String toString() {
-        return nombre + " " + tipoComida + "\nDescripcion: " + descripcion;
+        return nombre + " " + tipoComida + "\n\tDescripcion: " + descripcion + "\n";
     }
-    
-    
+
 }

@@ -1,9 +1,18 @@
 package com.proyecto1.modosdejuego;
 
+import com.proyecto1.dinamicajuego.OrdenamientoYBusqueda;
 import com.proyecto1.animales.Mascota;
+import com.proyecto1.camposdejuego.Bosque;
+import com.proyecto1.camposdejuego.CampoDeJuego;
+import com.proyecto1.camposdejuego.Mar;
+import com.proyecto1.camposdejuego.Nube;
+import com.proyecto1.camposdejuego.Pantano;
+import com.proyecto1.camposdejuego.Sabana;
+import com.proyecto1.camposdejuego.SinCampo;
 import com.proyecto1.jugadores.Computadora;
 import com.proyecto1.jugadores.JugadorImportado;
 import com.proyecto1.jugadores.Usuario;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -27,6 +36,7 @@ public class Batalla {
      * usuario y de la IA o jugador importado en caso de modo de juego Arena
      */
     public void jugarArena() {
+        this.seleccionarMapa();
         //MIENTRAS EL USUARIO O RIVAL TENGA MÁS ANIMALES SE REPITE EL CICLO
         System.out.println("Batalla comenzada\tRonda: " + ronda);
         System.out.println("\nMi equipo");
@@ -66,6 +76,36 @@ public class Batalla {
 
     private void iniciarHabilidadesPrimarias() {
 
+    }
+
+    public void seleccionarMapa() {
+        boolean error = false;
+        while (!error) {
+            try {
+                CampoDeJuego[] campos = new CampoDeJuego[6];
+                campos[0] = new Pantano("Pantano", "Los animales tipo reptil ganarán (+1/+1) por cada animal reptil en batalla");
+                campos[1] = new Nube("Nubes", "Los animales tipo volador ganarán (+1/+1) por cada animal volador en batalla");
+                campos[2] = new Mar("Mar", "Los animales de tipo acuático ganarán (+1/+1) por cada animal acuático en batalla");
+                campos[3] = new Bosque("Bosque", "Los animales tipo terrestre tendrán un buff de (+2/0) por cada tipo terrestre\n\tLos animales tipo mamíferos tendrán (0/+2) ");
+                campos[4] = new Sabana("Sabana", "Los Desérticos ganan (0/+1) extra por cada alimento que se les de");
+                campos[5] = new SinCampo("Sin Campo", "Los solitarios ganan una bonificación de (+3/+3) si solo hay uno en el equipo");
+
+                for (CampoDeJuego campo : campos) {
+                    campo.getDescripcion();
+                }
+                System.out.println("Escriba el nombre del mapa donde quiera jugar:");
+                String nombre = entrada.nextLine();
+                error = true;
+
+                OrdenamientoYBusqueda buscar = new OrdenamientoYBusqueda();
+                buscar.buscarPorSecuencia(nombre, campos);
+
+            } catch (InputMismatchException e) {
+                String errorCometido = entrada.nextLine();
+                System.out.println("Valor incorrecto: \"" + errorCometido + "\"");
+                System.out.println("Ha ingresado un valor incorrecto!!\nVuelva a intentarlo\n");
+            }
+        }
     }
 
     /**

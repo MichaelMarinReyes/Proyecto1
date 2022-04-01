@@ -10,11 +10,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("\t************************************");
-        System.out.println("\t*SUPER\t\t         *");
-        System.out.println("\t*\tAUTO\t         *");
+        System.out.println("\t*********************");
+        System.out.println("\t*SUPER\t\t    *");
+        System.out.println("\t*\tAUTO\t    *");
         System.out.println("\t*\t\tPETS*");
-        System.out.println("\t************************************\n");
+        System.out.println("\t*********************\n");
 
         Scanner entrada = new Scanner(System.in);
 
