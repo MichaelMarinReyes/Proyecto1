@@ -47,6 +47,7 @@ public class MenuEntreBatalla {
                         case 1:
                             while (usuario.getOro() >= 3) {
                                 tienda.comprarMascotas();
+
                             }
                             System.out.println("No cuentas con suficiente monedas para comprar");
                             this.mostrarOpcionesDeTiendaArena();
@@ -56,8 +57,11 @@ public class MenuEntreBatalla {
                             break;
                         case 3:
                             while (usuario.getOro() >= 3) {
+
                                 tienda.comprarComida();
+                                break;
                             }
+
                             System.out.println("No cuentas con suficientes monedas para comprar");
                             this.mostrarOpcionesDeTiendaArena();
                             break;
@@ -170,10 +174,6 @@ public class MenuEntreBatalla {
     }
 
     public void venderMascotas() {
-
-    }
-
-    public void fusionarMascotas() {
 
     }
 

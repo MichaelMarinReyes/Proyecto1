@@ -1,7 +1,7 @@
 package com.proyecto1.dinamicajuego;
 
-import com.proyecto1.camposdejuego.CampoDeJuego;
 import com.proyecto1.animales.Mascota;
+import com.proyecto1.camposdejuego.CampoDeJuego;
 
 /**
  *
@@ -10,69 +10,29 @@ import com.proyecto1.animales.Mascota;
 public class OrdenamientoYBusqueda {
 
     /**
-     * Método para odenar los elementos dependiendo de la elección del usuario,
-     * las opciones disponibles son tier, vida o daño ya sea de menor a mayor o
-     * viceversa.
+     * Método para ordenar los valores de un arreglo de Mascotas de manera El
+     * parametro equipo es de tipo Mascota que significa de que tipo es el
+     * arreglo
+     *
+     * @param equipo
      */
-    public void ordenarPorCaracteristicas(int opcion, char ascendenteDescendente, Mascota[] equipo) {
-        switch (opcion) {
-            case 1:
-                while (ascendenteDescendente == 'a' || ascendenteDescendente == 'd') {
-                    if (ascendenteDescendente == 'a') {
-     //                   this.ordenarPorBurbujaAscendente(equipo);
-                    } else if (ascendenteDescendente == 'd') {
-//                        this.ordenarPorBurbujaDescendente(equipo);
-                    }
-                    break;
+    public void ordenarPorBurbuja(Mascota[] equipo) {
+        for (int i = 0; i < equipo.length; i++) {
+            for (int j = 0; j < equipo.length - 1; j++) {
+                if (equipo[j - 1].getNombre().compareTo(equipo[j].getNombre()) < 0) {
+                    Mascota auxiliar = equipo[j];
+                    equipo[j] = equipo[j - 1];
+                    equipo[j - 1] = auxiliar;
                 }
+            }
 
-            default:
-                System.out.println("Ingrese un valor Correcto");
         }
     }
 
-    /**
-     * Método para ordenar los valores de un arreglo de Mascotas de manera
-     * Ascendente
-     *
-     * @param equipo
-     */
-//    public void ordenarPorBurbujaAscendente(Mascota[] equipo) {
-//        for (int i = 0; i < equipo.length; i++) {
-//            for (int j = 0; j < equipo.length - 1; j++) {
-//                if (equipo[j - 1] > equipo[j]) {
-//                    Mascota auxiliar = equipo[j];
-//                    equipo[j] = equipo[j - 1];
-//                    equipo[j - 1] = auxiliar;
-//                }
-//            }
-//
-//        }
-//    }
-
-    /**
-     * Método para ordenar los valores de un arreglo de Mascotas de manera
-     * Descendente
-     *
-     * @param equipo
-     */
-//    public void ordenarPorBurbujaDescendente(Mascota[] equipo) {
-//        for (int i = 0; i < equipo.length; i++) {
-//            for (int j = 0; j < equipo.length - 1; j++) {
-//                if (equipo[j - 1] < equipo[j]) {
-//                    Mascota auxiliar = equipo[j];
-//                    equipo[j] = equipo[j - 1];
-//                    equipo[j - 1] = auxiliar;
-//                }
-//            }
-//
-//        }
-   // }
-
-    /**
-     * Método para realizar una busqueda dentro del arreglo de Mascotas
-     */
-    public void buscarBinariamente(Mascota[] equipo, int tipoABuscar) {
+/**
+ * Método para realizar una busqueda dentro del arreglo de Mascotas
+ */
+public void buscarBinariamente(Mascota[] equipo, int tipoABuscar) {
         int indiceInicial = 0;
         int indiceFinal = equipo.length;
         int puntoMedio;

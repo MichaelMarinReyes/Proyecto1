@@ -16,6 +16,8 @@ public class Arena {
     public void comenzarActividadJuego() {
         Batalla jugar = new Batalla();
         MenuEntreBatalla submenu = new MenuEntreBatalla();
+        
+        System.out.println("-MODO DE JUEGO ARENA-");
         submenu.mostrarOpcionesDeTiendaArena();
     }
 

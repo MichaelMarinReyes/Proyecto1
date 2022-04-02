@@ -47,14 +47,16 @@ public class MenuPrincipal {
                         case 4:
                             //REPORTES
                             break;
-                        default:
+                        case 5:
                             System.out.println("-------------------------------");
                             System.out.println("*Saliendo del Juego*");
+                        default:
+                            System.out.println("\tValor ingresado incorrecto\n\tVuelva a Intentarlo\n");
+                            this.mostrarMenuPrincipal();
                             break;
                     }
                 } else {
                     while (opcion > 5) {
-                        System.out.println("\tValor ingresado incorrecto\n\tVuelva a Intentarlo\n");
                         this.mostrarMenuPrincipal();
                     }
                 }
