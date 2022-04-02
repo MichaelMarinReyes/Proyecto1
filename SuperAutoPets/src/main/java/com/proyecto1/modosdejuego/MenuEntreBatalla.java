@@ -1,13 +1,6 @@
 package com.proyecto1.modosdejuego;
 
 import com.proyecto1.animales.Mascota;
-import com.proyecto1.camposdejuego.Bosque;
-import com.proyecto1.camposdejuego.CampoDeJuego;
-import com.proyecto1.camposdejuego.Mar;
-import com.proyecto1.camposdejuego.Nube;
-import com.proyecto1.camposdejuego.Pantano;
-import com.proyecto1.camposdejuego.Sabana;
-import com.proyecto1.camposdejuego.SinCampo;
 import com.proyecto1.jugadores.Usuario;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -36,7 +29,7 @@ public class MenuEntreBatalla {
             try {
                 while (usuario.getVida() > 0) {
                     System.out.println("-MENÚ DE TURNO-");
-                    System.out.println("Monedas" + usuario.getOro());
+                    System.out.println("Monedas: " + usuario.getOro());
                     System.out.println("Equipo: ");
 //                    usuario.getEquipo();
                     System.out.println("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
@@ -46,7 +39,7 @@ public class MenuEntreBatalla {
                     System.out.println("Mascotas disponibles:");
                     tienda.mostrarMascotasAleatorias(ronda);
                     System.out.println("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
-                    System.out.println("1. Comprar Mascota\t2. Comprar Comida\t3. Cambiar opciones de tienda\t4. Jugar");
+                    System.out.println("1. Comprar Mascota\t2. Vender Mascota\t 3.Comprar Comida\t4. Cambiar opciones de tienda\t5. Jugar");
                     int opcion = entrada.nextInt();
                     error = true;
 
@@ -59,21 +52,28 @@ public class MenuEntreBatalla {
                             this.mostrarOpcionesDeTiendaArena();
                             break;
                         case 2:
+                            this.venderMascotas();
+                            break;
+                        case 3:
                             while (usuario.getOro() >= 3) {
-                                this.comprarComida();
+                                tienda.comprarComida();
                             }
                             System.out.println("No cuentas con suficientes monedas para comprar");
                             this.mostrarOpcionesDeTiendaArena();
                             break;
-                        case 3:
-                            while (usuario.getOro() >= 1) {
-                           //     usuario.setOro(usuario.getOro() - 1);
-                                tienda.mostrarMascotasAleatorias(ronda);
-                                tienda.mostrarComidaAleatoria(ronda);
-                                this.mostrarOpcionesDeTiendaArena();
+                        case 4:
+                            if (usuario.getOro() >= 1) {
+                                while (usuario.getOro() >= 1) {
+                                    usuario.setOro(usuario.getOro() - 1);
+                                    tienda.mostrarMascotasAleatorias(ronda);
+                                    tienda.mostrarComidaAleatoria(ronda);
+                                    this.mostrarOpcionesDeTiendaArena();
+                                }
+                            } else {
+                                System.out.println("no cuentas con suficientes monedas para cambiar las opciones de tienda");
                             }
                             break;
-                        case 4:
+                        case 5:
                             jugar.jugarArena();
                             ronda++;
                             break;
@@ -125,7 +125,7 @@ public class MenuEntreBatalla {
                             break;
                         case 2:
                             while (usuario.getOro() >= 3) {
-                                this.comprarComida();
+                                tienda.comprarComida();
                             }
                             System.out.println("No cuentas con suficientes monedas para comprar");
                             this.mostrarOpcionesDeTiendaArena();
@@ -167,11 +167,6 @@ public class MenuEntreBatalla {
 
     public void aplicarEfectosPermanentes() {
 
-    }
-
-    public void comprarComida() {
-        Tienda comida = new Tienda();
-        tienda.mostrarComidaAleatoria(ronda);
     }
 
     public void venderMascotas() {

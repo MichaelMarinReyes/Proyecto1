@@ -19,17 +19,39 @@ public class Tienda {
     Tier mostrarTier = new Tier();
 
     /**
-     * Método que se encarga de mostrar los animales según ronda y tier
-     * desbloqueado.
+      * Se encarga de pasar el parámetro de ronda al método desbloquearTierAnimales()
+      * que se encuntra en la clase Tier.
+     * @param ronda
      */
     public void mostrarMascotasAleatorias(int ronda) {
         mostrarTier.desbloquearTierMascota(ronda);
     }
 
-    public void mostrarComidaAleatoria(int ronda){
+    /**
+     * Se encarga de pasarle el parámetro de ronda al método
+     * desbloquearTierComida(int ronda) que se se encuentra en la clase Tier.
+     *
+     * @param ronda
+     */
+    public void mostrarComidaAleatoria(int ronda) {
         mostrarTier.desbloquerTierComida(ronda);
     }
-    public void comprarMascotas() {
 
+    /**
+     * Se encarga de mostrar al usuario un submenú para que pueda comprar un animal
+     * y agregarlo a un espacio disponible o fusionarlo con alguno de los animales que el
+     * usuario tenga.
+     */
+    public void comprarMascotas() {
+        System.out.println("Escriba el nombre de mascota que desea agregar al equipo");
+        String nombre = entrada.nextLine();
+    }
+    
+    /**
+     * Se encarga de mostrar el usuario un submenú para que pueda comprar un tipo de
+     * comida y aplicarlo a alguna mascota que él usuario tenga en el equipo.
+     */
+    public void comprarComida() {
+        
     }
 }
