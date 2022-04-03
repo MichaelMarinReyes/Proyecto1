@@ -1,6 +1,6 @@
 package com.proyecto1.dinamicajuego;
 
-import com.proyecto1.animales.Mascota;
+import com.proyecto1.mascotas.Mascota;
 import com.proyecto1.camposdejuego.CampoDeJuego;
 
 /**
@@ -54,7 +54,16 @@ public void buscarBinariamente(Mascota[] equipo, int tipoABuscar) {
         }
     }
 
-    public void buscarPorSecuencia(String nombre, CampoDeJuego[] campos) {
+/**
+ * Método que se encarga de realizar una búsqueda secuencial del mapa seleccionado
+ * por el usuario.
+ * 
+ * Recibe parámetros donde nombre es el nombre del mapa que se va a buscar y campos
+ * es el arreglo de Campos disponibles que tendrá el usuario para jugar.
+ * @param nombre
+ * @param campos 
+ */
+    public void buscarPorSecuenciaParaMapas(String nombre, CampoDeJuego[] campos) {
         CampoDeJuego mapaSeleccionado = null;
         for (CampoDeJuego campo : campos) {
             if (campo.verificarNombre(nombre)) {
@@ -62,7 +71,6 @@ public void buscarBinariamente(Mascota[] equipo, int tipoABuscar) {
                 break;
             }
         }
-
         if (mapaSeleccionado != null) {
             System.out.println("Mapa seleccionado: " + mapaSeleccionado);
         } else {

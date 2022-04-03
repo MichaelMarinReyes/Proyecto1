@@ -1,6 +1,6 @@
 package com.proyecto1.jugadores;
 
-import com.proyecto1.animales.Mascota;
+import com.proyecto1.mascotas.Mascota;
 
 /**
  *
@@ -10,16 +10,23 @@ public class Avatar {
 
     private int vida = 10;
     private int victorias = 0;
-    private Mascota[] equipo;
+    private int monedas = 10;
+    private Mascota[] equipo = new Mascota[5];
+    private int numeroMascotasCompradas;
 
-    public Avatar( int vida, int victorias, Mascota[] equipo) {
+    public Avatar(int vida, int victorias, Mascota[] equipo) {
         this.vida = vida;
         this.victorias = victorias;
         this.equipo = equipo;
     }
-    
-    public Avatar(){
-        
+
+    public Avatar(int numeroMascotasCompradas) {
+        equipo = new Mascota[numeroMascotasCompradas];
+        numeroMascotasCompradas = 0;
+    }
+
+    public Avatar() {
+
     }
 
     public int getVida() {
@@ -38,6 +45,14 @@ public class Avatar {
         this.victorias = victorias;
     }
 
+    public int getMonedas() {
+        return monedas;
+    }
+
+    public void setMonedas(int monedas) {
+        this.monedas = monedas;
+    }
+
     public Mascota[] getEquipo() {
         for (Mascota mascotas : equipo) {
             System.out.println(mascotas);
@@ -51,5 +66,89 @@ public class Avatar {
 
     public boolean indicadorDeVida() {
         return vida > 0;
+    }
+
+    /**
+     * Verifica si el equipo de mascotas es 0 el usuario no cuenta con mascotas
+     * que puedan seguir en batalla.
+     *
+     * @return
+     */
+    public boolean equipoVacio() {
+        return numeroMascotasCompradas == 0;
+    }
+
+    /**
+     * Indica que la cantidad de mascotas dentro del equipo del usuario esta
+     * completo y no se pueden agregar más mascotas.
+     *
+     * @return
+     */
+    public boolean indicarEspacioDeEquipoCompleto() {
+        return numeroMascotasCompradas == equipo.length;
+    }
+
+    /**
+     * Se encarga de agregar una mascota al equipo del usuario, pero verifica
+     * antes si hay espacios disponibles o la posición indicada esta libre.
+     *
+     * @param mascotaNueva
+     */
+    public void agregarMascota(Mascota mascotaNueva) {
+        if (!indicarEspacioDeEquipoCompleto()) {
+            equipo[numeroMascotasCompradas++] = mascotaNueva;
+        } else {
+            System.out.println("El equipo está completo o la posición indicada está ocupada intente nuevamente\n");
+        }
+    }
+
+    /**
+     * Muestra que dado el nombre de una mascota este se encuentra dentro del
+     * equipo del usuario y así poder realizar una fusión de la mascota o vender
+     * una mascota.
+     *
+     * @param nombre
+     * @return
+     */
+    public Mascota mostrarMascotaAlmacenada(String nombre) {
+        Mascota nombreMascota = null;
+        if (!equipoVacio()) {
+            for (int i = 0; i < numeroMascotasCompradas; i++) {
+                if (equipo[i].getNombre().equals(nombre)) {
+                    nombreMascota = equipo[i];
+                    break;
+                }
+            }
+        }
+        return nombreMascota;
+    }
+
+    /**
+     * Vende una mascota seleccionada por nombre y la cantidad de monedas que el
+     * usuario obtiene será igual al nivel que tenga mascota en ese momento de
+     * venta.
+     *
+     * El parámetro nombre es el nombre que el usuario ingresa correspondiente a
+     * la mascota que desea vender.
+     *
+     * @param nombre
+     */
+    public void vender(String nombre) {
+        if (!equipoVacio() && mostrarMascotaAlmacenada(nombre) != null) {
+            for (int i = 0; i < numeroMascotasCompradas; i++) {
+                if (equipo[i].getNombre().equals(nombre)) {
+                    if (i == (numeroMascotasCompradas - 1)) {
+                        setMonedas(getMonedas() + mostrarMascotaAlmacenada(nombre).getNivel());
+                        System.out.println("Monedas obtenidas por la venta: " + getMonedas());
+                        numeroMascotasCompradas--;
+                    } else {
+                        equipo[i] = equipo[--numeroMascotasCompradas];
+                        break;
+                    }
+                }
+            }
+        } else {
+            System.out.println("No se encontro mascota que desea vender, por favor verifique que el nombre\ningresado sea correcto\n");
+        }
     }
 }

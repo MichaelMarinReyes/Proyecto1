@@ -1,7 +1,7 @@
 package com.proyecto1.modosdejuego;
 
 import com.proyecto1.dinamicajuego.OrdenamientoYBusqueda;
-import com.proyecto1.animales.Mascota;
+import com.proyecto1.mascotas.Mascota;
 import com.proyecto1.camposdejuego.Bosque;
 import com.proyecto1.camposdejuego.CampoDeJuego;
 import com.proyecto1.camposdejuego.Mar;
@@ -55,7 +55,7 @@ public class Batalla {
     }
 
     public void jugarVersus() {
-        jugador.escribirArchivo();
+     //   jugador.escribirArchivo();
         jugadorImportado.leerArchivo();
         //MIENTRAS EL USUARIO O RIVAL TENGA MÁS ANIMALES SE REPITE EL CICLO
         System.out.println("Batalla comenzada\tRonda: " + ronda);
@@ -98,7 +98,7 @@ public class Batalla {
                 error = true;
 
                 OrdenamientoYBusqueda buscar = new OrdenamientoYBusqueda();
-                buscar.buscarPorSecuencia(nombre, campos);
+                buscar.buscarPorSecuenciaParaMapas(nombre, campos);
 
             } catch (InputMismatchException e) {
                 String errorCometido = entrada.nextLine();

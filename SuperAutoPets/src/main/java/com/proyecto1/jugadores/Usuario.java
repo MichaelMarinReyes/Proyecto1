@@ -1,6 +1,6 @@
 package com.proyecto1.jugadores;
 
-import com.proyecto1.animales.Mascota;
+import com.proyecto1.mascotas.Mascota;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -13,9 +13,12 @@ import java.util.Scanner;
 public class Usuario extends Avatar {
 
     private String nombre;
-    private int oro = 10;
 
     Scanner entrada = new Scanner(System.in);
+
+    public Usuario(int numeroMascotasCompradas) {
+        super(numeroMascotasCompradas);
+    }
 
     public Usuario(int vida, int victorias, Mascota[] equipo, String nombre) {
         super(vida, victorias, equipo);
@@ -38,15 +41,7 @@ public class Usuario extends Avatar {
         this.nombre = nombre;
     }
 
-    public int getOro() {
-        return oro;
-    }
-
-    public void setOro(int oro) {
-        this.oro = oro;
-    }
-
-    public void escribirArchivo() {
+    public void escribirArchivo(Mascota[] equipo) {
         System.out.println("Ingrese la dirección donde desea guardar el archivo");
         String path = entrada.nextLine();
 
@@ -55,12 +50,12 @@ public class Usuario extends Avatar {
         try {
             PrintWriter printer = new PrintWriter(fileDestino);
             //ARREGLO DE MASCOTAS
-            
+
             printer.println(super.getEquipo());
             printer.close();
         } catch (FileNotFoundException e) {
             System.out.println("No se encontro la dirección ingresada");
-            this.escribirArchivo();
+            //         this.escribirArchivo();
         }
     }
 }

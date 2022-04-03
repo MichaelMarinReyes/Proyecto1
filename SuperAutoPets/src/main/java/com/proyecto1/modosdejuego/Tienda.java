@@ -1,7 +1,8 @@
 package com.proyecto1.modosdejuego;
 
-import com.proyecto1.alimentos.Comida;
-import com.proyecto1.animales.Mascota;
+import com.proyecto1.jugadores.Avatar;
+import com.proyecto1.jugadores.Usuario;
+import com.proyecto1.mascotas.Mascota;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,14 +12,18 @@ import java.util.Scanner;
  */
 public class Tienda {
 
-    private Mascota[] animalesTienda;
-    private Comida[] comidaTienda;
+    private final int COSTO = 3;
+    private Mascota[] equipo;
     private int ronda = 1;
     private String[] tipo = {"Insecto", "Terrestre"};
     private boolean error = false;
+    Avatar usuario;
 
     Scanner entrada = new Scanner(System.in);
     Tier mostrarTier = new Tier();
+
+    public Tienda() {
+    }
 
     /**
      * Se encarga de pasar el parámetro de ronda al método
@@ -27,7 +32,8 @@ public class Tienda {
      * @param ronda
      */
     public void mostrarMascotasAleatorias(int ronda) {
-        mostrarTier.desbloquearTierMascota(ronda);
+        equipo = mostrarTier.desbloquearTierMascota(ronda);
+
     }
 
     /**
@@ -56,10 +62,13 @@ public class Tienda {
                 if (compra == 1) {
                     this.fusionarMascotas();
                 } else {
+                    if (usuario.equipoVacio() && !usuario.indicarEspacioDeEquipoCompleto()) {
                     System.out.println("Escriba el nombre de mascota que desea agregar al equipo");
                     String nombre = entrada.nextLine();
-                    //BUSCAR POR NOMBRE EL ANIMAL APLICANDO BUrbuja
-
+                
+//                    ((Usuario) usuario).setMonedas(((Usuario) usuario).getMonedas() - COSTO);
+                        
+                    }
                 }
             } catch (InputMismatchException e) {
                 String errorCometido = entrada.nextLine();
@@ -86,5 +95,9 @@ public class Tienda {
         String eleccion = entrada.nextLine();
 
         // Busqueda binaria
+    }
+
+    public void copiarArreglo() {
+
     }
 }

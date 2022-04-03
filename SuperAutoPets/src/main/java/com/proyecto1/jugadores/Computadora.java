@@ -1,6 +1,6 @@
 package com.proyecto1.jugadores;
 
-import com.proyecto1.animales.Mascota;
+import com.proyecto1.mascotas.Mascota;
 
 /**
  *
