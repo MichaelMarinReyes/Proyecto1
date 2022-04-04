@@ -12,7 +12,7 @@ public class Avatar {
     private int victorias = 0;
     private int monedas = 10;
     private Mascota[] equipo = new Mascota[5];
-    private int numeroMascotasCompradas;
+    private int numeroMascotas;
 
     public Avatar(int vida, int victorias, Mascota[] equipo) {
         this.vida = vida;
@@ -69,13 +69,13 @@ public class Avatar {
     }
 
     /**
-     * Verifica si el equipo de mascotas es 0 el usuario no cuenta con mascotas
-     * que puedan seguir en batalla.
+     * Verifica si el número de mascotas en el equipo es 0 el usuario no cuenta
+     * con mascotas que puedan seguir en batalla.
      *
      * @return
      */
     public boolean equipoVacio() {
-        return numeroMascotasCompradas == 0;
+        return numeroMascotas == 0;
     }
 
     /**
@@ -84,8 +84,8 @@ public class Avatar {
      *
      * @return
      */
-    public boolean indicarEspacioDeEquipoCompleto() {
-        return numeroMascotasCompradas == equipo.length;
+    public boolean indicarEquipoLleno() {
+        return numeroMascotas == equipo.length;
     }
 
     /**
@@ -95,8 +95,9 @@ public class Avatar {
      * @param mascotaNueva
      */
     public void agregarMascota(Mascota mascotaNueva) {
-        if (!indicarEspacioDeEquipoCompleto()) {
-            equipo[numeroMascotasCompradas++] = mascotaNueva;
+        if (!indicarEquipoLleno()) {
+            equipo[numeroMascotas++] = mascotaNueva;
+            System.out.println("Mascota agregada al equipo");
         } else {
             System.out.println("El equipo está completo o la posición indicada está ocupada intente nuevamente\n");
         }
@@ -113,7 +114,7 @@ public class Avatar {
     public Mascota mostrarMascotaAlmacenada(String nombre) {
         Mascota nombreMascota = null;
         if (!equipoVacio()) {
-            for (int i = 0; i < numeroMascotasCompradas; i++) {
+            for (int i = 0; i < numeroMascotas; i++) {
                 if (equipo[i].getNombre().equals(nombre)) {
                     nombreMascota = equipo[i];
                     break;
@@ -134,15 +135,16 @@ public class Avatar {
      * @param nombre
      */
     public void vender(String nombre) {
+
         if (!equipoVacio() && mostrarMascotaAlmacenada(nombre) != null) {
-            for (int i = 0; i < numeroMascotasCompradas; i++) {
+            for (int i = 0; i < numeroMascotas; i++) {
                 if (equipo[i].getNombre().equals(nombre)) {
-                    if (i == (numeroMascotasCompradas - 1)) {
+                    if (i == (numeroMascotas - 1)) {
                         setMonedas(getMonedas() + mostrarMascotaAlmacenada(nombre).getNivel());
                         System.out.println("Monedas obtenidas por la venta: " + getMonedas());
-                        numeroMascotasCompradas--;
+                        numeroMascotas--;
                     } else {
-                        equipo[i] = equipo[--numeroMascotasCompradas];
+                        equipo[i] = equipo[--numeroMascotas];
                         break;
                     }
                 }
@@ -150,5 +152,36 @@ public class Avatar {
         } else {
             System.out.println("No se encontro mascota que desea vender, por favor verifique que el nombre\ningresado sea correcto\n");
         }
+    }
+
+    public void fusionar(String nombre, int nivel) {
+        Mascota mascota = mostrarMascotaAlmacenada(nombre);
+        if (!equipoVacio() && mascota != null) {
+            mascota.aumentarNivel(1);
+        } else {
+            System.out.println("No son del mismo tipo las mascotas que desea fusionar");
+        }
+    }
+
+    private Mascota[] copiarEquipo() {
+        Mascota copia[] = new Mascota[numeroMascotas];
+        for (int i = 0; i < numeroMascotas; i++) {
+            copia[i] = equipo[i];
+        }
+        return copia;
+    }
+
+    public Mascota[] ordenarPorBurbuja(String nombre) {
+        Mascota copia[] = copiarEquipo();
+        for (int i = 0; i < numeroMascotas; i++) {
+            for (int j = i + 1; j < numeroMascotas; j++) {
+                if (equipo[i].getNombre().compareTo(equipo[j].getNombre()) < 0) {
+                    Mascota auxiliar = copia[i];
+                    copia[i] = copia[j];
+                    copia[j] = auxiliar;
+                }
+            }
+        }
+        return copia;
     }
 }

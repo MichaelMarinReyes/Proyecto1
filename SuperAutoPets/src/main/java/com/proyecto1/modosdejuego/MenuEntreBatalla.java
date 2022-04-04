@@ -193,7 +193,10 @@ public class MenuEntreBatalla {
     }
 
     public void venderMascotas() {
-
+        System.out.println("Ingrese el nombre de la mascota que desea vender");
+        String venta = entrada.nextLine();
+        
+        usuario.vender(venta);
     }
 
     public void posicionarAnimalComprado() {

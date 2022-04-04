@@ -13,24 +13,25 @@ import java.util.Scanner;
 public class Usuario extends Avatar {
 
     private String nombre;
-
+    
     Scanner entrada = new Scanner(System.in);
 
-    public Usuario(int numeroMascotasCompradas) {
-        super(numeroMascotasCompradas);
+    public Usuario(String nombre, int vida, int victorias, Mascota[] equipo) {
+        super(vida, victorias, equipo);
+        this.nombre = nombre;
     }
 
-    public Usuario(int vida, int victorias, Mascota[] equipo, String nombre) {
-        super(vida, victorias, equipo);
+    public Usuario(String nombre, int numeroMascotasCompradas) {
+        super(numeroMascotasCompradas);
         this.nombre = nombre;
     }
 
     public Usuario(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public Usuario() {
-
+        
     }
 
     public String getNombre() {
@@ -40,7 +41,8 @@ public class Usuario extends Avatar {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
+    
     public void escribirArchivo(Mascota[] equipo) {
         System.out.println("Ingrese la dirección donde desea guardar el archivo");
         String path = entrada.nextLine();

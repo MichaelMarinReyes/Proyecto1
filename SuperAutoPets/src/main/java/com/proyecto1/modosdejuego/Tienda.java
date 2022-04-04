@@ -62,7 +62,7 @@ public class Tienda {
                 if (compra == 1) {
                     this.fusionarMascotas();
                 } else {
-                    if (usuario.equipoVacio() && !usuario.indicarEspacioDeEquipoCompleto()) {
+                    if (((Usuario) usuario).equipoVacio() && !((Usuario) usuario).indicarEquipoLleno()) {
                     System.out.println("Escriba el nombre de mascota que desea agregar al equipo");
                     String nombre = entrada.nextLine();
                 
@@ -93,7 +93,11 @@ public class Tienda {
     public void fusionarMascotas() {
         System.out.println("Ingrese el nombre de la mascota que desea fusionar");
         String eleccion = entrada.nextLine();
-
+        if (eleccion == null) {
+            System.out.println("La mascota buscada no se encontro\n");
+        } else {
+            
+        }
         // Busqueda binaria
     }
 

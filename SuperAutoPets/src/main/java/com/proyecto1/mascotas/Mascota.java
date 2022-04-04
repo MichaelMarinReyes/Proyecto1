@@ -72,9 +72,10 @@ public class Mascota {
         return tier;
     }
 
-    public int getNivel(){
+    public int getNivel() {
         return nivel;
     }
+
     public void setNivel(int nivel) {
         this.tier = nivel;
     }
@@ -120,4 +121,9 @@ public class Mascota {
     public boolean verificarUnidadDeVida(int vidaABuscar) {
         return unidadDeVida == vidaABuscar;
     }
+
+    public void aumentarNivel(int mascota) {
+        
+    }
+    
 }
